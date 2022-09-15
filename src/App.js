@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 export const App = () => {
+
+  //状態管理するstate
   const [count, setCount] = useState(0);
 
   //イベント処理(直前の状態を引数として、関数を渡す)
@@ -19,6 +21,12 @@ export const App = () => {
     setCount((count) => count * 2);
   }
 
+  const divideBy3 = () => {
+    //countが3の倍数の時だけ、3で割る。=> count%3 === 0 が条件
+    count % 3 === 0 ? setCount((count) => count / 3)
+      : alert('３の倍数ではありません！！');
+  }
+
   return (
     <>
       <p>カウント:{count}</p>
@@ -32,6 +40,9 @@ export const App = () => {
       <br />
       <br />
       <button onClick={multiplication}>*2</button>
+      <br />
+      <br />
+      <button onClick={divideBy3}>3の倍数の時だけ、3で割る</button>
     </>
   );
 }
