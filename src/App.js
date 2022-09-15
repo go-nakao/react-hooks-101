@@ -11,6 +11,10 @@ export const App = () => {
     setCount((count) => count - 1);
   }
 
+  const reset = () => {
+    setCount(0);
+  }
+
   return (
     <>
       <p>カウント:{count}</p>
@@ -18,6 +22,9 @@ export const App = () => {
       <br />
       <br />
       <button onClick={countDown}>カウントダウン</button>
+      <br />
+      <br />
+      <button onClick={reset}>リセット</button>
     </>
   );
 }
