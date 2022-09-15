@@ -15,6 +15,10 @@ export const App = () => {
     setCount(0);
   }
 
+  const multiplication = () => {
+    setCount((count) => count * 2);
+  }
+
   return (
     <>
       <p>カウント:{count}</p>
@@ -25,6 +29,9 @@ export const App = () => {
       <br />
       <br />
       <button onClick={reset}>リセット</button>
+      <br />
+      <br />
+      <button onClick={multiplication}>*2</button>
     </>
   );
 }
