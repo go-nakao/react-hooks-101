@@ -10,9 +10,21 @@ export const App = props => {
   const [name, setName] = useState(props.name);
   const [price, setPrice] = useState(props.price);
 
+  //関数を定義
+  const incrementPrice = () => {
+    setPrice((price) => price + 1)
+  }
+
+  const decrementPrice = () => {
+    setPrice((price) => price - 1);
+  }
+
   return (
     <div>
       <p>現在の{name}は、{price}円です。</p>
+      <button onClick={incrementPrice}>金額設定+1</button>
+      <br />
+      <button onClick={decrementPrice}>金額設定-1</button>
     </div>
   );
 }
