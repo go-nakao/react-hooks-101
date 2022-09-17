@@ -35,6 +35,8 @@ export const App = props => {
       <button onClick={decrementPrice}>金額設定-1</button>
       <br />
       <button onClick={resetPrice}>0リセット</button> <button onClick={reset1000}>初期値1000</button>
+      <br />
+      <input placeholder="サンプル" value={name} onChange={(e) => setName(e.target.value)} />{/*nameを入力させる*/}
     </div>
   );
 }
