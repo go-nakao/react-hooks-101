@@ -8,10 +8,11 @@ export const App = props => {
   */
 
   const [state, setState] = useState(props); //この部分で、props で受け取ったオブジェクトを定義
-  const { name, price } = state;
+  const { name, price } = state;  //// propsを分割代入
   //関数を定義
   const incrementPrice = () => {
     setState({ ...state, price: price + 1 });
+    //スプレッド構文参考：https://zenn.dev/axpensive/articles/6f35d3da03044f
   }
   const decrementPrice = () => {
     setState({ ...state, price: price - 1 });
