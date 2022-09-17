@@ -1,30 +1,23 @@
 import React, { useState } from "react";
 
 export const App = props => {
-  const initialStates = {
-    name: '',
-    price: 1000
-  }
 
-  //状態管理(propsを受け取っている)
-  const [name, setName] = useState(props.name);
-  const [price, setPrice] = useState(props.price);
+  /*
+    状態管理(propsを受け取っている)
+    今回のブランチでやること：オブジェクトをuseStateに渡す
+  */
 
+  const [state, setState] = useState(props); //この部分で、props で受け取ったオブジェクトを定義
+  const { name, price } = state;
   //関数を定義
   const incrementPrice = () => {
-    setPrice((price) => price + 1)
+    setState({ ...state, price: price + 1 });
   }
-
   const decrementPrice = () => {
-    setPrice((price) => price - 1);
+    setState({ ...state, price: price - 1 });
   }
-
-  const resetPrice = () => {
-    setPrice((price) => price = 0);
-  }
-
-  const reset1000 = () => {
-    setPrice(props.price);
+  const reset = () => {
+    setState(props); //初期値を渡すことで、リセットできる
   }
 
   return (
@@ -34,9 +27,9 @@ export const App = props => {
       <br />
       <button onClick={decrementPrice}>金額設定-1</button>
       <br />
-      <button onClick={resetPrice}>0リセット</button> <button onClick={reset1000}>初期値1000</button>
+      <button onClick={reset}>初期値</button>
       <br />
-      <input placeholder="サンプル" value={name} onChange={(e) => setName(e.target.value)} />{/*nameを入力させる*/}
+      <input placeholder="サンプル" value={name} onChange={(e) => setState({ ...state, name: e.target.value })} />{/*nameを入力させる*/}
     </div>
   );
 }
