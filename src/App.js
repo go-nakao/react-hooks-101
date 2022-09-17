@@ -23,6 +23,10 @@ export const App = props => {
     setPrice((price) => price = 0);
   }
 
+  const reset1000 = () => {
+    setPrice(props.price);
+  }
+
   return (
     <div>
       <p>現在の{name}は、{price}円です。</p>
@@ -30,7 +34,7 @@ export const App = props => {
       <br />
       <button onClick={decrementPrice}>金額設定-1</button>
       <br />
-      <button onClick={resetPrice}>リセット</button>
+      <button onClick={resetPrice}>0リセット</button> <button onClick={reset1000}>初期値1000</button>
     </div>
   );
 }
